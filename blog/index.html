@@ -1,0 +1,29 @@
+---
+layout: default
+title: Blog
+---
+
+<h1>Blog Posts</h1>
+<div class="row container">
+  {% for post in site.posts %}
+  <div class="col l4">
+    <div class="card hoverable">
+      <div class="card-image">
+        <img src="{{ post.postImg }}">
+        <span class="card-title">{{post.title}}</span>
+      </div>
+      <div class="card-content">
+        <p>{{ page.content }}</p>
+      </div>
+      <div class="card-action">
+        <a class="waves-effect waves-light btn" href="{{post.url}}">Read</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<ul>
+  {% for post in site.posts %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
